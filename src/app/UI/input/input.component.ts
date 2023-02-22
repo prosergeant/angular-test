@@ -1,11 +1,27 @@
-import { Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, DoCheck, EventEmitter, Input, KeyValueDiffer, KeyValueDiffers, Output} from '@angular/core';
 
 @Component({
     selector: 'UiInput',
     templateUrl: './input.component.html',
     styleUrls: ['./input.component.scss'],
 })
-export class InputComponent {
+export class InputComponent implements DoCheck{
+
+    // watcher--
+    differ: KeyValueDiffer<string, any>
+    constructor(private differs: KeyValueDiffers) {
+        this.differ = this.differs.find({}).create()
+    }
+
+    ngDoCheck() {
+        const change = this.differ.diff(this)
+        if(change)
+            change.forEachChangedItem(item => {
+                if(item.key === 'modelValue')
+                    this.modelValueChanger.emit(item.currentValue)
+            })
+    }
+    // --watcher
 
     validation = false
 
@@ -13,12 +29,7 @@ export class InputComponent {
     @Input() isRequired!: boolean | string
     @Input() isDisabled!: boolean
     @Input() modelValue!: number | string | object[] | object
-    @Output() modelValueChanger = new EventEmitter<string>()
-
-    onModelValueChanger() {
-        this.modelValueChanger.emit(this.modelValue as string)
-    }
-
+    @Output() modelValueChanger = new EventEmitter<string>(true)
 
 
     @Input() label?: string
