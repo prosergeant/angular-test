@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import { OrganizationDetailComponent } from './organization-detail/organization-detail.component';
 import {InterceptorProvider} from "./auth/http-interceptors/retry-when.interceptor";
 import { InputComponent } from './UI/input/input.component';
+import { UiButtonComponent } from './UI/ui-button/ui-button.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { InputComponent } from './UI/input/input.component';
         OrganizationsComponent,
         AuthComponent,
         OrganizationDetailComponent,
-        InputComponent
+        InputComponent,
+        UiButtonComponent,
     ],
     imports: [
         BrowserModule,

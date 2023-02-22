@@ -19,7 +19,7 @@
                 <p class="card-body_text">
                      $t("enter_data_authorization")
                 </p>
-                <UiInput [type]="'default'" isRequired  [modelValue]="email" (modelValueChanger)="email=$event" />
+                <UiInput type="default" isRequired  [modelValue]="email" (modelValueChanger)="email=$event" />
                 <UiInput type="password" isRequired [modelValue]="password" (modelValueChanger)="password=$event" />
             </div>
             <div class="card-footer">
@@ -35,7 +35,7 @@
                 </a>
             </div>
             <div class="card-send">
-                <button type="submit" class="card-btn">$t("come_in")</button>
+                <UiButton type="submit" class="card-btn" />
             </div>
         </div>
     </div>

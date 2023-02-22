@@ -1,0 +1,367 @@
+@import "src/styles";
+@import "src/normalize";
+
+.btn {
+    height: 40px;
+    width: 100%;
+    padding: 0 16px;
+    font-weight: 500;
+    font-size: 14px;
+    color: $white;
+    background: $blue-700;
+    //box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    grid-gap: 8px;
+    transition: 0.3s;
+
+    &:hover {
+        i {
+            transition: 0.3s;
+            background: $white;
+        }
+
+        .btn-content span {
+            transition: 0.2s;
+            color: $white;
+        }
+    }
+
+    &-grey {
+        & i:hover {
+            background: $grey-500 !important;
+        }
+    }
+
+    &:active {
+        background: $blue-600;
+    }
+
+    &-disabled,
+    &:disabled {
+        background: #b7c0cb;
+        cursor: default;
+    }
+
+    &-secondary {
+        color: #667085;
+        background: $white;
+        border: 1px solid $grey-300;
+        font-weight: 500;
+
+        i {
+            background: #667085;
+        }
+
+        &:hover {
+            background: #f4f4f4;
+
+            i {
+                transition: 0.3s;
+                background: $grey-600;
+            }
+        }
+
+        &:active {
+            background: #e2e2e2;
+        }
+
+        &:disabled {
+            background: $white;
+            opacity: 0.4;
+        }
+
+        &.grey {
+            background: $grey-50;
+            border: 1px solid $grey-300;
+            box-shadow: none;
+
+            &:hover {
+                color: $grey-500;
+            }
+        }
+
+        &.light-grey {
+            background: $grey-50;
+            border: 1px solid $grey-300;
+            color: $grey-500;
+        }
+
+        &-save {
+            font-size: 14px;
+            line-height: 20px;
+            background-color: $blue-700;
+            border-radius: 4px;
+
+            &:hover {
+                background: $blue-600;
+                color: white;
+            }
+        }
+
+        &-cancel {
+            font-size: 14px;
+            line-height: 20px;
+            background-color: $white;
+            color: $blue-700;
+            border: 1px solid $blue-700;
+            border-radius: 4px;
+
+            &:hover {
+                background: $blue-600;
+                color: $white;
+            }
+        }
+    }
+
+    &-exclusive {
+        height: 32px;
+        padding: 6px 16px;
+        font-weight: 500;
+        font-size: 14px;
+        color: $blue-700;
+        background: $white;
+        border: 1px solid $blue-700;
+        border-radius: 4px;
+        grid-gap: 8px;
+
+        &:hover {
+            background: #0560fc0e;
+        }
+
+        &:active {
+            background: #0560fc31;
+        }
+
+        &:disabled {
+            background: $white;
+            opacity: 0.4;
+        }
+
+        .icon {
+            height: 20px;
+            width: 20px;
+        }
+    }
+
+    &-toolbar {
+        height: 36px;
+        width: 36px;
+        border-radius: 12px;
+        margin-right: 16px;
+        padding: 0;
+        background: #eef0f5;
+        border: 0.5px solid #9da3ac;
+
+        &:hover {
+            background: #f4f4f4;
+        }
+
+        &:active {
+            background: #e2e2e2;
+        }
+
+        &:disabled {
+            background: $white;
+            opacity: 0.4;
+        }
+    }
+
+    &-medium {
+        height: 32px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 6px 16px;
+    }
+
+    &-modal-medium {
+        height: 36px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 6px 16px;
+    }
+
+    &-small {
+        height: 24px;
+    }
+
+    &-light {
+        background: $grey-50;
+        border: 1px solid $grey-200;
+        font-size: 14px;
+        line-height: 20px;
+        color: $grey-500;
+    }
+
+    &-save {
+        background-color: $blue-700;
+        border-radius: 4px;
+
+        &:hover {
+            background: $blue-600;
+            color: white;
+        }
+    }
+
+    &-cancel {
+        color: $blue-700;
+        background: $white;
+        border: 1px solid $blue-700;
+        border-radius: 4px;
+
+        &.btn-disabled {
+            background: $white;
+            color: $grey-300;
+            border: 1px solid $grey-300;
+            box-shadow: none;
+
+            & i {
+                background-color: $grey-300 !important;
+            }
+
+            &:hover {
+                background: $white;
+            }
+        }
+
+        &:hover {
+            background: #0560fc0e;
+        }
+    }
+
+    &-delete {
+        color: #F04438;
+        background: $white;
+        border: 1px solid #F04438;
+
+        &:hover {
+            background: #f044381a;
+        }
+    }
+
+    &-light-outline {
+        padding: 12px 16px;
+        height: 44px;
+        width: 100%;
+        background: $white;
+        border: 1px solid $blue-700;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        color: $blue-700;
+        font-size: 14px;
+        justify-content: flex-start;
+
+        &:hover {
+            background: $blue-50;
+        }
+    }
+
+    &-without-border {
+        border: none;
+        background: none;
+        padding: 0;
+        color: $blue-700;
+        box-shadow: none;
+        height: 20px;
+
+        &:hover {
+            background: none;
+
+            & i {
+                background: $blue-700;
+            }
+        }
+    }
+}
+
+.show_more {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: $blue-700;
+}
+
+.dot-carousel {
+    position: relative;
+    left: -9999px;
+    width: 8px;
+    height: 8px;
+    border-radius: 5px;
+    background-color: $white;
+    color: $white;
+    box-shadow: 9984px 0 0 0 $white, 9999px 0 0 0 $white, 10014px 0 0 0 $white;
+    animation: dotCarousel 1.5s infinite linear;
+    animation-direction: reverse;
+}
+
+@keyframes dotCarousel {
+    0% {
+        box-shadow: 9984px 0 0 -1px $white, 9999px 0 0 1px $white,
+        10014px 0 0 -1px $white;
+    }
+
+    50% {
+        box-shadow: 10014px 0 0 -1px $white, 9984px 0 0 -1px $white,
+        9999px 0 0 1px $white;
+    }
+
+    100% {
+        box-shadow: 9999px 0 0 1px $white, 10014px 0 0 -1px $white,
+        9984px 0 0 -1px $white;
+    }
+}
+
+.dot-flashing {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $blue-98;
+    color: $blue-98;
+    animation: dotFlashing 1s infinite linear alternate;
+    animation-delay: 0.5s;
+}
+
+.dot-flashing::before,
+.dot-flashing::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+
+.dot-flashing::before {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $blue-98;
+    color: $blue-98;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 0s;
+}
+
+.dot-flashing::after {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $blue-98;
+    color: $blue-98;
+    animation: dotFlashing 1s infinite alternate;
+    animation-delay: 1s;
+}
+
+@keyframes dotFlashing {
+    0% {
+        background-color: $blue-98;
+    }
+
+    50%,
+    100% {
+        background-color: #ebe6ff;
+    }
+}
