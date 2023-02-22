@@ -1,0 +1,42 @@
+<div class="main-page-auth">
+
+    <div class="main-auth" (keyup.enter)="login()">
+
+        <div class="notify" *ngIf="isError">
+            <div class="notify__inner">
+<!--                <UiIcon icon="error" color="error-500"/>-->
+                <p>you_entered_an_incorrect_username_password</p>
+<!--                <UiIcon icon="remove" @click="isError = false"/>-->
+            </div>
+            <p class="inlight">invalid_data</p>
+        </div>
+
+        <div class="auth-card">
+            <div class="card-head">
+                <img class="logo-icon" src="/img/logo-kalkan.png" alt=""/>
+            </div>
+            <div class="card-body">
+                <p class="card-body_text">
+                     $t("enter_data_authorization")
+                </p>
+                <UiInput [type]="'default'" isRequired  [modelValue]="email" (modelValueChanger)="email=$event" />
+                <UiInput type="password" isRequired [modelValue]="password" (modelValueChanger)="password=$event" />
+            </div>
+            <div class="card-footer">
+<!--                <UiCheckbox-->
+<!--                    :text="$t('remember_me')"-->
+<!--                    color="blue"-->
+<!--                    v-model="check"-->
+<!--                    :disabled="!(logins && password)"-->
+<!--                />-->
+
+                <a routerLink="/update" class="tags__forgot">
+                     $t("forgot_your_password?")
+                </a>
+            </div>
+            <div class="card-send">
+                <button type="submit" class="card-btn">$t("come_in")</button>
+            </div>
+        </div>
+    </div>
+</div>

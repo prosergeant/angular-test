@@ -1,0 +1,46 @@
+<div
+    class="all-input"
+    [class.all-input__disabled]="isDisabled || isMultiDisabled"
+    [class.all-input__error]="isError || validation"
+    [class.all-input__top]="label"
+>
+    <div class="all-input__label" *ngIf="label && type !== 'choices'">
+        {{ label }} <span *ngIf="isRequired">*</span>
+    </div>
+
+    <div class="all-input__main" [class.all-input__main-height]="['select'].includes(type)">
+            <span class="all-input__web" *ngIf="web">
+                http://
+            </span>
+
+        <!-- Default -->
+        <input
+            (change)="onModelValueChanger()"
+            id="default_input_id"
+            class="all-input__itself"
+            [(ngModel)]="modelValue"
+            [type]="['tel', 'default'].includes(type) ? 'text' : type"
+            [placeholder]="['tel'].includes(type) ? '+7 (___) ___ __ __' : placeholder"
+            [required]="isRequired"
+            [disabled]="isDisabled"
+            *ngIf="['default', 'number', 'password', 'tel', 'email'].includes(type)"
+            [class.all-input__itself-web]="web"
+            step="any"
+        >
+
+        <!-- Text -->
+        <textarea
+            class="all-input__itself all-input__itself-textarea"
+            [(ngModel)]="modelValue"
+            [placeholder]="placeholder"
+            [required]="isRequired"
+            [disabled]="isDisabled"
+            *ngIf="['text'].includes(type)"
+        ></textarea>
+
+    </div>
+
+    <p class="all-input__text" *ngIf="text">
+        {{ text }}
+    </p>
+</div>

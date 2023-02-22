@@ -1,0 +1,11 @@
+<p>organizations works!</p>
+
+<div class="block" *ngFor="let organization of organizations">
+    <p (click)="goToOrg(organization.id)">{{organization.name}}</p>
+    <span
+        [class.red]="organization.index < 20"
+        [class.green]="organization.index >= 20"
+    >
+        {{organization.index}}
+    </span>
+</div>
