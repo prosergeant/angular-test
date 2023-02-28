@@ -1,25 +1,17 @@
-import {Component, Input, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'UiButton',
-  templateUrl: './ui-button.component.html',
-  styleUrls: ['./ui-button.component.scss']
+    selector: 'UiButton',
+    templateUrl: './ui-button.component.html',
+    styleUrls: ['./ui-button.component.scss']
 })
 export class UiButtonComponent {
 
-    @ViewChild('template', {static: true}) template: any
-
-    constructor(private viewContainerRef: ViewContainerRef) {
+    constructor() {
         if(this.type === undefined) {
             this.type = 'button'
         }
     }
-
-    ngOnInit() {
-        this.viewContainerRef.createEmbeddedView(this.template)
-        this.viewContainerRef.element.nativeElement.remove()
-    }
-
 
     @Input() icon?: string | boolean
     @Input() disabled?: boolean
