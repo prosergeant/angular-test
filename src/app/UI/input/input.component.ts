@@ -18,7 +18,13 @@ export class InputComponent implements DoCheck{
         if(change)
             change.forEachChangedItem(item => {
                 if(item.key === 'modelValue')
-                    this.modelValueChanger.emit(item.currentValue)
+                    if(!this.modelValueUdp) {
+                        this.modelValueUdp = true
+                        setTimeout(() => {
+                            this.modelValueChanger.emit(item.currentValue)
+                            this.modelValueUdp = false
+                        }, 0)
+                    }
             })
     }
     // --watcher
@@ -30,6 +36,7 @@ export class InputComponent implements DoCheck{
     @Input() isDisabled!: boolean
     @Input() modelValue!: number | string | object[] | object
     @Output() modelValueChanger = new EventEmitter<string>(true)
+    modelValueUdp = false
 
 
     @Input() label?: string
