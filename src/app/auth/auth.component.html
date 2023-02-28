@@ -19,8 +19,8 @@
                 <p class="card-body_text">
                      $t("enter_data_authorization")
                 </p>
-                <UiInput type="default" isRequired  [modelValue]="email" (modelValueChanger)="email=$event" />
-                <UiInput type="password" isRequired [modelValue]="password" (modelValueChanger)="password=$event" />
+                <UiInput label="Email" type="default" [isRequired]="true" [modelValue]="email" (modelValueChanger)="email=$event" />
+                <UiInput label="Пароль" type="password" [isRequired]="true" [modelValue]="password" (modelValueChanger)="password=$event" />
             </div>
             <div class="card-footer">
 <!--                <UiCheckbox-->
@@ -35,7 +35,7 @@
                 </a>
             </div>
             <div class="card-send">
-                <UiButton type="submit" class="card-btn" />
+                <UiButton type="submit" class="card-btn" [loading]="loading" (click)="login()" [disabled]="!email || !password">pupa</UiButton>
             </div>
         </div>
     </div>
