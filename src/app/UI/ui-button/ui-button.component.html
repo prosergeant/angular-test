@@ -1,9 +1,11 @@
-<button class="btn" [class.btn-disabled]="disabled">
-<!--    <UiIcon *ngIf="icon" [icon]="icon" [color]="color" [size]="size" />-->
+<ng-template #template>
+    <button class="btn" [class.btn-disabled]="disabled" [type]="type">
+        <!--    <UiIcon *ngIf="icon" [icon]="icon" [color]="color" [size]="size" />-->
 
-<!--    <slot *ngIf="loading === false" />-->
-    <ng-container *ngIf="!loading">tut button</ng-container>
-    <ng-template [ngIf]="loading">
-        <div class="dot-carousel"></div>
-    </ng-template>
-</button>
+        <!--    <slot *ngIf="loading === false" />-->
+        <ng-template [ngIf]="!loading"><ng-content></ng-content></ng-template>
+        <ng-template [ngIf]="loading">
+            <div class="dot-carousel"></div>
+        </ng-template>
+    </button>
+</ng-template>
