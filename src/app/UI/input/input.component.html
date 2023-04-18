@@ -1,11 +1,13 @@
 <div class="ui-input" [attr.data-label]="label">
     <input
+        *ngIf="['default', 'number', 'password', 'tel', 'email'].includes(type)"
+        (input)="modelValueEmit($event)"
         [(ngModel)]="modelValue"
         [type]="['tel', 'default'].includes(type) ? 'text' : type"
         [placeholder]="['tel'].includes(type) ? '+7 (___) ___ __ __' : placeholder"
         [required]="isRequired"
         [disabled]="isDisabled"
-        *ngIf="['default', 'number', 'password', 'tel', 'email'].includes(type)"
+        [name]="name"
         step="any"
     />
 </div>

@@ -12,3 +12,8 @@ export interface Organizations {
     type: string;
     childs: any[];
 }
+
+export interface Modules {
+    id: number,
+    tag: string
+}

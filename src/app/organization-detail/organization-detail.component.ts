@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ConfigService} from "../config.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Organizations} from "../organizations";
 
 @Component({
@@ -10,20 +10,22 @@ import {Organizations} from "../organizations";
 })
 export class OrganizationDetailComponent {
 
-    constructor(private route: ActivatedRoute, private configService: ConfigService) {}
+    constructor(
+        private configService: ConfigService, 
+        private router: Router
+        ) {}
 
     org: Organizations = {} as Organizations
-    org_str = ''
+    orgId = parseInt(this.router.url.match(/\d+/)?.toString() || '0')
+    org_str = '{pupa: lupa}'
 
     ngOnInit(): void {
-        this.route.params.subscribe(data => {
-            this.configService.getData<Organizations>(`organizations/object/${data['id']}`)
-                .subscribe((org_data) => {
-                    this.org = org_data
-                    this.org_str = JSON.stringify(org_data)
-                    this.org_str = this.org_str.replaceAll(',', ',\n')
-                })
-        })
+        this.configService.getData<Organizations>(`organizations/object/${this.orgId}`)
+            .subscribe((org_data) => {
+                this.org = org_data
+                this.org_str = JSON.stringify(org_data)
+                this.org_str = this.org_str.replaceAll(',', ',\n')
+            })
     }
 
 

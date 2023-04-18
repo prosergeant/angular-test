@@ -1,0 +1,26 @@
+<div class="base-layout">
+
+    <div class="first-header">
+        <div class="c1">
+            <a routerLink="''"><img class="logo-icon" src="/assets/img/logo-kalkan.png" alt=""/></a>
+        </div>
+        <div class="c2">
+            <p>lang</p>
+            <p>req</p>
+            <p>notify</p>
+            <p>user</p>
+        </div>
+    </div>
+    <div class="second-header">
+        <p>Главная</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="content">
+            <div class="sidebar" *ngIf="drowSidebar()"><app-base-sidebar/></div>
+            <div class="main-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

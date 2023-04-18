@@ -19,13 +19,14 @@ export class AuthComponent {
     email = ''
     password = ''
     isError = false
+    loading = false
 
     login() {
+        // this.loading = true
         this.authService.auth(this.email, this.password)
             .subscribe(data => {
                 if (data.access)
                     this.router.navigate(['/'])
-
             })
     }
 }

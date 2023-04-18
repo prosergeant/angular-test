@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
-
 import {AppComponent} from './app.component';
 import {OrganizationsComponent} from './organizations/organizations.component';
 import {AppRoutingModule} from "./app-routing.module";
@@ -11,6 +10,10 @@ import { OrganizationDetailComponent } from './organization-detail/organization-
 import {InterceptorProvider} from "./auth/http-interceptors/retry-when.interceptor";
 import { InputComponent } from './UI/input/input.component';
 import { UiButtonComponent } from './UI/ui-button/ui-button.component';
+import { TestPageComponent } from './test-page/test-page.component';
+import { BaseLayoutComponent } from './UI/Layouts/base-layout/base-layout.component';
+import { BaseSidebarComponent } from './UI/Base/base-sidebar/base-sidebar.component';
+import { MiniSideBarLayoutComponent } from './UI/Layouts/mini-side-bar-layout/mini-side-bar-layout.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +23,10 @@ import { UiButtonComponent } from './UI/ui-button/ui-button.component';
         OrganizationDetailComponent,
         InputComponent,
         UiButtonComponent,
+        TestPageComponent,
+        BaseLayoutComponent,
+        BaseSidebarComponent,
+        MiniSideBarLayoutComponent,
     ],
     imports: [
         BrowserModule,

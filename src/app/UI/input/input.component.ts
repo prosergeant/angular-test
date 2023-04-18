@@ -5,38 +5,46 @@ import {Component, DoCheck, EventEmitter, Input, KeyValueDiffer, KeyValueDiffers
     templateUrl: './input.component.html',
     styleUrls: ['./input.component.scss'],
 })
-export class InputComponent implements DoCheck{
+export class InputComponent {
+    //implements DoCheck
 
-    // watcher--
-    differ: KeyValueDiffer<string, any>
-    constructor(private differs: KeyValueDiffers) {
-        this.differ = this.differs.find({}).create()
-    }
-
-    ngDoCheck() {
-        const change = this.differ.diff(this)
-        if(change)
-            change.forEachChangedItem(item => {
-                if(item.key === 'modelValue')
-                    if(!this.modelValueUdp) {
-                        this.modelValueUdp = true
-                        setTimeout(() => {
-                            this.modelValueChanger.emit(item.currentValue)
-                            this.modelValueUdp = false
-                        }, 0)
-                    }
-            })
-    }
-    // --watcher
+    // // watcher--
+    // differ: KeyValueDiffer<string, any>
+    // constructor(private differs: KeyValueDiffers) {
+    //     this.differ = this.differs.find({}).create()
+    // }
+    //
+    // ngDoCheck() {
+    //     const change = this.differ.diff(this)
+    //     if(change)
+    //         change.forEachChangedItem(item => {
+    //             console.log(item)
+    //             if(item.key === 'modelValue')
+    //                 if(!this.modelValueUdp) {
+    //                     this.modelValueUdp = true
+    //                     setTimeout(() => {
+    //                         this.modelValueChanger.emit(item.currentValue)
+    //                         this.modelValueUdp = false
+    //                     }, 0)
+    //                 }
+    //         })
+    // }
+    // // --watcher
 
     validation = false
 
-    @Input() type!: string
+    @Input() type: string = 'default'
     @Input() isRequired!: boolean | string
     @Input() isDisabled!: boolean
     @Input() modelValue!: number | string | object[] | object
-    @Output() modelValueChanger = new EventEmitter<string>(true)
-    modelValueUdp = false
+    @Output() modelValueChanger = new EventEmitter<any>()
+
+    modelValueEmit(event: Event) {
+        const target = event.target as HTMLInputElement
+        this.modelValueChanger.emit(target.value)
+    }
+
+    // modelValueUdp = false
 
 
     @Input() label?: string
@@ -46,6 +54,7 @@ export class InputComponent implements DoCheck{
     @Input() placeholder?: string = ''
     @Input() mask?: string
     @Input() optionsKey?: string
+    @Input() name: string = ''
 
     @Input() isTel?: boolean
     @Input() isError?: boolean

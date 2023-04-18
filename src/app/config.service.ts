@@ -10,10 +10,12 @@ export class ConfigService {
         private http: HttpClient,
     ) {}
 
-    readonly BASEURL = 'http://10.10.77.102:8000/'
+    readonly MAIN = 'http://10.10.77.102'
+    readonly BASEURL = `${this.MAIN}:8000/`
+    readonly AUTH = `${this.MAIN}:8001/`
 
-    getData<T>(url: string) {
-        return this.http.get<T>(this.BASEURL + url)
+    getData<T>(url: string, def = 'BASEURL') {
+        return this.http.get<T>(this[def as keyof ConfigService] + url)
             // .pipe(catchError(this.errorHandler))
     }
 
