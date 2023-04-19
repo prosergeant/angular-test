@@ -2,7 +2,7 @@
 
 <div class="mini-sidebar">
     <ng-template ngFor let-item [ngForOf]="routes.children">
-        <a [routerLink]="currModule + '/' + item.path" [class.active]="item.path === currPath"> {{ item.path }} </a>
+        <a [routerLink]="currModule+'/'+routes.path+'/'+item.path" [class.active]="item.path === currPath"> {{ item.path }} </a>
     </ng-template>
 </div>
 

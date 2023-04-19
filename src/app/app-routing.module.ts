@@ -16,15 +16,45 @@ const routes: Routes = [
             {path: '', component: OrganizationsComponent},
 
             {
-                path: 'org/:id', 
+                path: 'org/:id',
                 // component: OrganizationDetailComponent,
                 component: MiniSideBarLayoutComponent,
                 children: [
                     {
+                        path: '',
+                        redirectTo: 'passport/general_information/organization_data',
+                        pathMatch: 'full',
+                    },
+                    {
                         path: 'passport',
                         children: [
-                            {path: 'general_information', component: OrganizationDetailComponent},
-                            {path: 'characteristics', component: OrganizationDetailComponent},
+                            {
+                                path: '',
+                                redirectTo: 'general_information/organization_data',
+                                pathMatch: 'full',
+                            },
+                            {
+                                path: 'general_information',
+                                children: [
+                                    {
+                                        path: '',
+                                        redirectTo: 'organization_data',
+                                        pathMatch: 'full',
+                                    },
+                                    {path: 'organization_data', component: OrganizationDetailComponent},
+                                    {path: 'characteristics', component: OrganizationDetailComponent},
+                                ]
+                            },
+
+                            // {
+                            //     path: 'documents',
+                            //     children: [
+                            //         {path: 'title_documents'},
+                            //         {path: 'communication_network'},
+                            //         {path: 'plan_n_schemas'},
+                            //         {path: 'other_docs'},
+                            //     ]
+                            // },
                         ]
                     }
                 ]

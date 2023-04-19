@@ -5,21 +5,9 @@
             <img class="logo-icon" src="/assets/img/logo-kalkan.png" alt=""/>
         </div>
         <div class="body">
-            <li class="active">
+            <li [class.active]="false" *ngFor="let route of getRoutes(module.tag)">
                 <img class="logo-icon" src="/assets/img/logo-kalkan.png" alt=""/>
-                <p>route 1</p>
-            </li>
-            <li>
-                <img class="logo-icon" src="/assets/img/logo-kalkan.png" alt=""/>
-                <p>route 2</p>
-            </li>
-            <li>
-                <img class="logo-icon" src="/assets/img/logo-kalkan.png" alt=""/>
-                <p>route 3</p>
-            </li>
-            <li>
-                <img class="logo-icon" src="/assets/img/logo-kalkan.png" alt=""/>
-                <p>route 4</p>
+                <a [routerLink]="'org/'+currOrg+'/'+module.tag+'/'+route.path">{{ route.path }}</a>
             </li>
         </div>
     </div>

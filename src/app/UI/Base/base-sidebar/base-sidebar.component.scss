@@ -43,8 +43,12 @@
 
                 border-radius: 4px;
 
-                p {
+                a {
                     text-transform: capitalize;
+                    text-decoration: none;
+                    cursor: pointer;
+                    transition: 0.2s;
+                    color: black;
                 }
 
                 img {
