@@ -10,7 +10,7 @@ export class BaseLayoutComponent {
 
     constructor(private router: Router) {}
 
-    drowSidebar(): boolean {
+    drawSidebar(): boolean {
         return this.router.url !== '/'
     }
 }

@@ -5,6 +5,7 @@
     display: flex;
 
     gap: 8px;
+    padding: 0 20px;
 
     a {
         width: fit-content;
@@ -15,13 +16,23 @@
         color: $blue-800;
         padding: 0 0 2px 0;
         text-transform: capitalize;
-        
+
         text-decoration: none;
         cursor: pointer;
         transition: 0.2s;
 
         &.active {
-            border-bottom: 2px solid $blue-800;
+            //border-bottom: 2px solid $blue-800;
+
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                top: 24px;
+                left: 0;
+                width: 100%;
+                border-bottom: 2px solid $blue-800;
+            }
         }
     }
 }

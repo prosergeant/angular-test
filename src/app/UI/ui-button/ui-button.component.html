@@ -1,8 +1,19 @@
-<button class="btn" [class.btn-disabled]="disabled" [disabled]="disabled" [type]="type">
+<button
+    class="btn"
+    [class.btn-disabled]="disabled"
+    [disabled]="disabled"
+    [type]="type"
+    [class.btn-secondary]="btnClass === 'secondary'"
+>
     <!--    <UiIcon *ngIf="icon" [icon]="icon" [color]="color" [size]="size" />-->
 
     <!--    <slot *ngIf="loading === false" />-->
-    <ng-container *ngIf="!loading"><ng-content></ng-content></ng-container>
+    <ng-container *ngIf="!loading">
+        <div class="btn-content">
+            <img *ngIf="getIcon()" [src]="getIcon()" [alt]="getIcon()" />
+            <ng-content></ng-content>
+        </div>
+    </ng-container>
     <ng-template [ngIf]="loading">
         <div class="dot-carousel"></div>
     </ng-template>

@@ -5,13 +5,13 @@
     // height: 100lvh;
     display: flex;
     flex-direction: column;
-    // overflow: hidden;    
+    // overflow: hidden;
 
     .first-header {
         width: 100%;
         display: flex;
         gap: 32px;
-        padding: 0px 240px;
+        padding: 0 240px;
         height: 64px;
         background: #FFFFFF;
         border-bottom: 1px solid $grey-200;
@@ -65,9 +65,9 @@
             .sidebar {
                 width: 300px;
             }
-        
+
            .main-content {
-                padding: 16px;
+               padding-top: 24px;
            }
         }
     }

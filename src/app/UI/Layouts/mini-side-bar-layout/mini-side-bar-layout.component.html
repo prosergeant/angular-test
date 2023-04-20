@@ -1,9 +1,9 @@
-<p>mini-side-bar-layout works!</p>
-
 <div class="mini-sidebar">
     <ng-template ngFor let-item [ngForOf]="routes.children">
         <a [routerLink]="currModule+'/'+routes.path+'/'+item.path" [class.active]="item.path === currPath"> {{ item.path }} </a>
     </ng-template>
 </div>
 
-<router-outlet></router-outlet>
+<div style="padding: 16px">
+    <router-outlet></router-outlet>
+</div>

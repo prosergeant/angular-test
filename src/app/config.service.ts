@@ -46,6 +46,11 @@ export class ConfigService {
         return this.modules$.value
     }
 
+    setModules(modules: Modules[]) {
+        localStorage.setItem('modules', JSON.stringify(modules))
+        this.modules$.next(modules)
+    }
+
     deepFind = <T>(pred: Function, type = 'fields') => ([x, ...xs]: any[] = []): T => x && (pred (x) ? x : this.deepFind (pred, type) (x[type]) || this.deepFind (pred, type) (xs))
     findd = <T = object>(key: string, val: string, type = 'fields') => (obj: T) => this.deepFind<T>((o: T) => o[key as keyof T] == val, type) ([obj])
 

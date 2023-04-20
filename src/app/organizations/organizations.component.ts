@@ -12,7 +12,6 @@ export class OrganizationsComponent {
     constructor(private configService: ConfigService, private router: Router) {}
 
     organizations: Organizations[] = []
-    modules: Modules[] = []
 
     ngOnInit(): void {
         this.configService.getData<Organizations[]>('organizations/')
@@ -22,7 +21,7 @@ export class OrganizationsComponent {
 
         this.configService.getData<Modules[]>('accounts/modules/', 'AUTH')
             .subscribe(data => {
-                localStorage.setItem('modules', JSON.stringify(data))
+                this.configService.setModules(data)
             })
     }
 

@@ -13,10 +13,17 @@ export class UiButtonComponent {
         }
     }
 
-    @Input() icon?: string | boolean
+    getIcon(): string {
+        if(this.icon)
+            return `/assets/icons/${this.icon}.svg`
+        return ''
+    }
+
+    @Input() icon?: string
     @Input() disabled?: boolean
     @Input() type?: string
     @Input() color?: string
     @Input() size?: string
     @Input() loading?: boolean
+    @Input() btnClass?: string
 }
