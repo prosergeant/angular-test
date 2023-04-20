@@ -14,6 +14,16 @@
         display: flex;
         justify-content: space-between;
 
+        .edit-btn {
+            background: #F9FAFB;
+            border: 1px solid #E4E7EC;
+            border-radius: 4px;
+            width: 26px;
+            height: 26px;
+            padding: 3px;
+            cursor: pointer;
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -33,6 +43,11 @@
             align-items: center;
             justify-content: center;
             font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        p {
+            text-align: right;
         }
     }
 
@@ -42,8 +57,82 @@
         align-items: center;
         margin-top: 8px;
 
-        uibutton {
+        .trust {
             width: fit-content;
+            opacity: 0.8;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 18px;
+            text-align: center;
+            border-radius: 16px;
+            padding: 2px 8px;
+            white-space: nowrap;
+            margin-left: 0;
+
+            &.red {
+                color: $error-700;
+                background: $error-100;
+            }
+
+            &.green {
+                color: $success-700;
+                background: $success-100;
+            }
+        }
+
+        UiButton {
+            width: fit-content;
+            white-space: nowrap;
+        }
+    }
+
+    .edit-btns {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 8px;
+        margin-top: 8px;
+
+        UiButton {
+            width: fit-content;
+        }
+    }
+
+    h3 {
+        font-weight: 500;
+        margin-bottom: 12px;
+    }
+
+
+    .ui-inputs {
+        padding: 4px 0;
+    }
+    .ui-inputs:not(:last-child) {
+        border-bottom: 1px solid $grey-200;
+    }
+
+    .inputs {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        padding: 4px 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $grey-200;
+        }
+
+        p {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            color: $grey-500;
+            max-width: 340px;
+            text-transform: capitalize;
+        }
+
+        span {
+            text-align: right;
             white-space: nowrap;
         }
     }
@@ -62,3 +151,4 @@
         }
     }
 }
+

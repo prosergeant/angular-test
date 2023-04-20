@@ -20,3 +20,23 @@
         border-radius: 4px;
     }
 }
+
+.ui-input-view {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    p {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: $grey-500;
+        max-width: 340px;
+        text-transform: capitalize;
+    }
+
+    span {
+        text-align: right;
+        white-space: nowrap;
+    }
+}

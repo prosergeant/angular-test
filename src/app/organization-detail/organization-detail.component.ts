@@ -15,24 +15,44 @@ export class OrganizationDetailComponent {
         private router: Router
         ) {}
 
-    org: Organizations = {} as Organizations
+    data: Organizations = {} as Organizations
+    oldData: Organizations = {} as Organizations
     orgId = parseInt(this.router.url.match(/\d+/)?.toString() || '0')
-    org_str = '{pupa: lupa}'
+
+    weekdays = [
+        'Понедельник',
+        'Вторник',
+        'Среда',
+        'Четверг',
+        'Пятница',
+        'Суббота',
+        'Воскресенье',
+    ]
 
     readonly PASSPORT_URL = this.configService.BASEURL
 
+    editorId = ''
+
     getLogo() {
-        return this.org?.logo ? this.PASSPORT_URL.slice(0, -1) + this.org.logo : '/assets/img/logo-kalkan.png'
+        return this.data?.logo ? this.PASSPORT_URL.slice(0, -1) + this.data.logo : '/assets/img/logo-kalkan.png'
+    }
+
+    cancel() {
+        this.editorId = ''
+        this.data = JSON.parse(JSON.stringify(this.oldData) || '{}')
+    }
+
+    save() {
+        this.editorId = ''
+        this.configService.putData<Organizations>(`organizations/object/${this.orgId}`, this.data)
+            .subscribe()
     }
 
     ngOnInit(): void {
         this.configService.getData<Organizations>(`organizations/object/${this.orgId}`)
             .subscribe((org_data) => {
-                this.org = org_data
-                this.org_str = JSON.stringify(org_data)
-                this.org_str = this.org_str.replaceAll(',', ',\n')
+                this.data = org_data
+                this.oldData = JSON.parse(JSON.stringify(org_data) || '{}')
             })
     }
-
-
 }

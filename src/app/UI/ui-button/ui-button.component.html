@@ -3,7 +3,7 @@
     [class.btn-disabled]="disabled"
     [disabled]="disabled"
     [type]="type"
-    [class.btn-secondary]="btnClass === 'secondary'"
+    [classList]="'btn ' + btnClass"
 >
     <!--    <UiIcon *ngIf="icon" [icon]="icon" [color]="color" [size]="size" />-->
 

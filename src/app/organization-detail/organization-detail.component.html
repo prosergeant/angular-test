@@ -4,23 +4,76 @@
             <div class="logo">
                 <img [src]="getLogo()" [alt]="getLogo()">
             </div>
-            <div class="org_name">{{ org.organization }}</div>
+            <div class="org_name">{{ data.organization }}</div>
         </div>
 
         <div class="footer">
-            <span class="trust">lupa</span>
-            <UiButton type="submit" btnClass="secondary" icon="report">Сформировать отчет</UiButton>
+            <span class="trust" [class.red]="data.trustworthy" [class.green]="!data.trustworthy">{{ data.trustworthy ? 'Есть проблемы' : 'Проблем нет' }}</span>
+            <UiButton type="submit" btnClass="btn-secondary h-32" icon="report">Сформировать отчет</UiButton>
         </div>
     </div>
 
     <div class="general-info">
-        <div class="box">
-            pupa
+        <div class="box d-flex column" [class.gap-16]="editorId === 'general_info'">
+            <div class="title">
+                <h3>Основная информация</h3>
+                <div class="edit-btn" (click)="editorId = 'general_info'">
+                    <img src="assets/icons/pen-square.svg" class="h-20 w-20" style="filter: invert(99%) sepia(93%) saturate(2727%) hue-rotate(215deg) brightness(80%) contrast(100%);" alt="" />
+                </div>
+            </div>
+            <div *ngFor="let i of data.data?.[0]" [class.ui-inputs]="editorId !== 'general_info'">
+                <UiInput [label]="i?.name" [modelValue]="i.value" (modelValueChanger)="i.value=$event" [isEditing]="editorId === 'general_info'" />
+            </div>
+
+            <div class="edit-btns" *ngIf="editorId === 'general_info'">
+                <UiButton type="submit" btnClass="h-32" (click)="save()">Сохранить</UiButton>
+                <UiButton type="submit" btnClass="h-32 btn-outline" (click)="cancel()">Отменить</UiButton>
+            </div>
         </div>
 
         <div class="box">
-            pupa
+            <div class="title">
+                <h3>Режим работы</h3>
+                <div class="edit-btn" (click)="editorId = 'work_time'">
+                    <img src="assets/icons/pen-square.svg" class="h-20 w-20" style="filter: invert(99%) sepia(93%) saturate(2727%) hue-rotate(215deg) brightness(80%) contrast(100%);" alt="" />
+                </div>
+            </div>
+            <div *ngFor="let i of data.data?.[2]" class="inputs">
+                <p>{{ weekdays[i?.workday || 0] }}</p>
+                <span *ngIf="i?.state">{{ i?.start_time }} - {{ i?.end_time }}</span>
+                <span *ngIf="i?.state === false" style="color: #32D583;"> Выходной </span>
+            </div>
+
+            <div class="edit-btns" *ngIf="editorId === 'work_time'">
+                <UiButton type="submit" btnClass="h-32" (click)="editorId = ''">Сохранить</UiButton>
+                <UiButton type="submit" btnClass="h-32 btn-outline" (click)="editorId = ''">Отменить</UiButton>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="title">
+            <h3>Контакты организации</h3>
+            <div class="edit-btn" (click)="editorId = 'contacts'">
+                <img src="assets/icons/pen-square.svg" class="h-20 w-20" style="filter: invert(99%) sepia(93%) saturate(2727%) hue-rotate(215deg) brightness(80%) contrast(100%);" alt="" />
+            </div>
+        </div>
+        <div class="d-flex space-between gap-16">
+            <div class="box d-flex column" [class.gap-16]="editorId === 'contacts'">
+                <div *ngFor="let i of $any(data?.data)?.[1]?.[0]?.[0]" [class.ui-inputs]="editorId !== 'contacts'">
+                    <UiInput [label]="i?.name" [modelValue]="i.value" (modelValueChanger)="i.value=$event" [isEditing]="editorId === 'contacts'" />
+                </div>
+            </div>
+            <div class="box d-flex column" [class.gap-16]="editorId === 'contacts'">
+                <div *ngFor="let i of $any(data?.data)?.[1]?.[0]?.[1]" [class.ui-inputs]="editorId !== 'contacts'">
+                    <UiInput [label]="i?.name" [modelValue]="i.value" (modelValueChanger)="i.value=$event" [isEditing]="editorId === 'contacts'" />
+                </div>
+            </div>
+        </div>
+
+        <div class="edit-btns" *ngIf="editorId === 'contacts'">
+            <UiButton type="submit" btnClass="h-32" (click)="save()">Сохранить</UiButton>
+            <UiButton type="submit" btnClass="h-32 btn-outline" (click)="cancel()">Отменить</UiButton>
         </div>
     </div>
 </div>
-

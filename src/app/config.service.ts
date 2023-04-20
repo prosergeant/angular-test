@@ -30,6 +30,9 @@ export class ConfigService {
             // .pipe(catchError(this.errorHandler))
     }
 
+    putData<T>(url: string, body: T, def = 'BASEURL') {
+        return this.http.put<T>(this[def as keyof ConfigService] + url, body)
+    }
 
     routes: Route = {}
     private currPath$ = new BehaviorSubject<string>('')

@@ -11,6 +11,22 @@ export interface Organizations {
     logo?: any;
     type: string;
     childs: any[];
+    data: IOrgData[][]
+    trustworthy: boolean
+}
+
+interface IOrgData {
+    name: string
+    type: string
+    other: boolean
+    required: boolean
+    front_type: string
+    value: string | number | null
+
+    end_time?: string
+    start_time?: string
+    state?: boolean
+    workday?: number
 }
 
 export interface Modules {

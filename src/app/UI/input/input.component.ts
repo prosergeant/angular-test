@@ -1,4 +1,4 @@
-import {Component, DoCheck, EventEmitter, Input, KeyValueDiffer, KeyValueDiffers, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core'; // DoCheck, KeyValueDiffer, KeyValueDiffers
 
 @Component({
     selector: 'UiInput',
@@ -36,7 +36,7 @@ export class InputComponent {
     @Input() type: string = 'default'
     @Input() isRequired!: boolean | string
     @Input() isDisabled!: boolean
-    @Input() modelValue!: number | string | object[] | object
+    @Input() modelValue!: any
     @Output() modelValueChanger = new EventEmitter<any>()
 
     modelValueEmit(event: Event) {
@@ -71,6 +71,7 @@ export class InputComponent {
     @Input() url?: boolean
     @Input() web?: boolean
     @Input() isKeys?: boolean
+    @Input() isEditing?: boolean
 
     @Input() options?: object[]
 

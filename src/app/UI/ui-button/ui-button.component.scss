@@ -34,6 +34,12 @@
         }
     }
 
+    &-outline {
+        background: white;
+        color: $blue-700;
+        border: 1px solid $blue-700;
+    }
+
     &:hover {
         i {
             transition: 0.3s;

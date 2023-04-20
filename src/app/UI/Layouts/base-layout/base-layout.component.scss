@@ -64,10 +64,13 @@
 
             .sidebar {
                 width: 300px;
+                border-left: 1px solid $grey-200;
+                border-right: 1px solid $grey-200;
             }
 
            .main-content {
                padding-top: 24px;
+               height: fit-content;
            }
         }
     }

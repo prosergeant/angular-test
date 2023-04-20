@@ -42,7 +42,7 @@ const routes: Routes = [
                                         pathMatch: 'full',
                                     },
                                     {path: 'organization_data', component: OrganizationDetailComponent},
-                                    {path: 'characteristics', component: OrganizationDetailComponent},
+                                    {path: 'object_characteristic', component: OrganizationDetailComponent},
                                 ]
                             },
 
