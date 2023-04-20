@@ -1,13 +1,13 @@
 <div class="sidebar">
     <div class="block-menu" *ngFor="let module of modules">
         <div class="top">
-            <h3 class="title">{{ module.tag }}</h3>
+            <h3 class="title">{{ module.tag | translate }}</h3>
             <img class="logo-icon" src="/assets/img/logo-kalkan.png" alt=""/>
         </div>
         <div class="body">
             <li [class.active]="false" *ngFor="let route of getRoutes(module.tag)">
                 <img class="logo-icon" src="/assets/img/logo-kalkan.png" alt=""/>
-                <a [routerLink]="'org/'+currOrg+'/'+module.tag+'/'+route.path">{{ route.path }}</a>
+                <a [routerLink]="'org/'+currOrg+'/'+module.tag+'/'+route.path">{{ route.path | translate }}</a>
             </li>
         </div>
     </div>

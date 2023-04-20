@@ -5,13 +5,13 @@
     // height: 100lvh;
     display: flex;
     flex-direction: column;
-    // overflow: hidden;    
+    // overflow: hidden;
 
     .first-header {
         width: 100%;
         display: flex;
         gap: 32px;
-        padding: 0px 240px;
+        padding: 0 240px;
         height: 64px;
         background: #FFFFFF;
         border-bottom: 1px solid $grey-200;
@@ -62,7 +62,7 @@
             width: 1440px;
             display: flex;
 
-    
+
             .sidebar {
                 width: 300px;
                 // height: calc(100lvh - 94px);

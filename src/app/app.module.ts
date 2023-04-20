@@ -14,6 +14,7 @@ import { TestPageComponent } from './test-page/test-page.component';
 import { BaseLayoutComponent } from './UI/Layouts/base-layout/base-layout.component';
 import { BaseSidebarComponent } from './UI/Base/base-sidebar/base-sidebar.component';
 import { MiniSideBarLayoutComponent } from './UI/Layouts/mini-side-bar-layout/mini-side-bar-layout.component';
+import { TranslatePipe } from './lang/pipe/translate.pipe';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { MiniSideBarLayoutComponent } from './UI/Layouts/mini-side-bar-layout/mi
         BaseLayoutComponent,
         BaseSidebarComponent,
         MiniSideBarLayoutComponent,
+        TranslatePipe,
     ],
     imports: [
         BrowserModule,
